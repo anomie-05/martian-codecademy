@@ -9,29 +9,23 @@ def get_destination_index(destination):
     return destination_index
 
 
-print(get_destination_index("Los Angeles, USA"))
-print(get_destination_index("Paris, France"))
-#print(get_destination_index("Hyderabad, India"))
-
-
 def get_traveler_location(traveler):
     '''This function checks for the index of the travelers location'''
     traveler_destination = traveler[1]
     traveler_destination_index = traveler.index(traveler_destination)
     return traveler_destination_index
 
-test_destination_index = get_traveler_location(test_traveler)
-print(test_destination_index)
 
 # Visiting Interesting Places
 
 attractions = []
 for detination in destinations:
     attractions.append([])
-
+    #iterating through the destinations variable and appending [] in the empty attractions list
 
 
 def add_attraction(destination, attraction):
+    '''This function adds new attractions to the empty attractions list'''
     destination_index = get_destination_index(destination)
     attractions_for_destination = attractions[destination_index].append(attraction)
     return
@@ -50,7 +44,6 @@ add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 #print(attractions)
 
 # Finding the best places to go
-#attractions_with_interest = []
 def find_attractions(destination, interests):
     destination_index = get_destination_index(destination)
     attractions_in_city = attractions[destination_index]
@@ -63,9 +56,6 @@ def find_attractions(destination, interests):
                 attractions_with_interest.append(possible_attraction[0])
     return attractions_with_interest
 
-
-la_arts = find_attractions("Los Angeles, USA", ["art"])
-print(la_arts)
 
 # See The Parts of a City You want to See
 
