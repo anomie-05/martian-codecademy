@@ -116,6 +116,7 @@ daily_transactions_split = []
 for transaction in daily_transactions:
     daily_transactions_split.append(transaction.split("+"))
 
+
 transactions_clean = []
 for transaction in daily_transactions_split:
     transaction_clean = []
@@ -123,16 +124,15 @@ for transaction in daily_transactions_split:
         transaction_clean.append(data_point.strip(" ").strip("\n"))
     transactions_clean.append(transaction_clean)
 
-#print(transactions_clean)
 
 customers = []
 sales = []
 thread_sold = []
-
 for i in range(len(transactions_clean)):
     customers.append(transactions_clean[i][0])
     sales.append(transactions_clean[i][1])
     thread_sold.append(transactions_clean[i][2])
+
 
 total_sales = 0
 temp = []
@@ -141,7 +141,6 @@ for sale in sales:
 for t in temp:
     total_sales += float(t)
 
-#print(thread_sold)
 
 thread_sold_split = []
 for sale in thread_sold:
@@ -150,15 +149,15 @@ for sale in thread_sold:
 
 
 def color_count(rainbow):
-    #count_total = thread_sold_split.count(color)
+    '''This function takes the color and returns the number of times the item was sold'''
     all_the_colors = 0
     for thread_color in thread_sold_split:
         if thread_color == rainbow:
             all_the_colors += 1
     return all_the_colors
 
-colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
 
+colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
 for i in colors:
     count = color_count(i)
     print(i, count)
